@@ -102,3 +102,16 @@
 
 [Notebook for transfer learning with `timm`](../pytorch/notebooks/03_experiment_timm_cont.ipynb)
 
+#### Training and Validation Loss/Accuracy
+<img src="../images/Screenshot 2026-02-08 at 22.31.44.png" 
+style="width: 60%" alt="Training and Validation Loss/Accuracy">
+
+#### Learning Rate Scheduler
+<img src="../images/Screenshot 2026-02-08 at 22.31.59.png"
+style="width: 60%" alt="Learning Rate Scheduler">
+
+#### Inferencing on test split
+<img src="../images/Screenshot 2026-02-08 at 22.32.10.png"
+style="width: 60%" alt="Inferencing on Test split">
+
+
