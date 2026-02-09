@@ -126,3 +126,23 @@ style="width: 80%" alt="Learning Rate Scheduler">
 style="width: 80%" alt="Inferencing on Test split">
 </div>
 
+<details>
+<summary>
+To read the personal experience with transfer learning, click here
+</summary>
+
+### Transer Learning experience
+
+While reproducing a Kaggle notebook, I ran into unexpected performance issues. The original notebook used the RMSProp optimizer along with data transformations, but on my Colab notebook the results were much worse. Training accuracy ranged between 40-60% while validation accuracy stayed around 10-20%. These numbers were reached within the first give epochs and then completely plateaued for the remaining 35 epochs.
+
+At first, I suspected a coding mistake, perphaps a misspelled variable name or assigning the same variable name, an indentation error in training/validation loops or during unpatching, or an issue with how loss or accuracy was calculated. After carefully reviewing the ode and running multiple experiments, I discovered with switching the optimizer from RMSProp to AdamW immediately fixed the problem. Both training and validation accuracy jumped above 90% within just three epochs. It was achieved with transformations being disabled, set to None.
+
+However, once I used the data augmentations while using AdamW, training became less stable. Accuracy improved gradually but fluctuated heavily between epochs - for example, jumping from 60% down to 35%, then back up to 80%. Based on chatbot recommendations, the augmentations were likely too aggressive, making the training process noisy. 
+
+While achieving 99% accuracy was great, another inefficiency became obvious, the model reached peak performance within the first 13 epochs yet continued training until epoch 40 with no meaningful improvements. This showed the need for early stopping with a patience parameters, which would automatically stop training when there is no progress over certain epochs. Implementing this would save both time and computational resources while preventing unnecessary runs or manual interruptions.
+
+Finally, I noticed that training without transformations was significantly faster because the CPU didn't have to spend time augmenting images. Instead, the data was send directly to the GPU, removing preprocessing delays.
+
+Overall this experience reinforced how optimizer choice, augmentation methods, and loss/accuracy calculations can dramatically impact both model performance and training efficiency.
+
+</details>
