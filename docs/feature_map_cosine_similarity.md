@@ -100,4 +100,5 @@
 
 ## Transfer learning with `timm`
 
-_details to be provided..._
+[Notebook for transfer learning with `timm`](../pytorch/notebooks/03_experiment_timm_cont.ipynb)
+
