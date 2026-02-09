@@ -104,6 +104,8 @@
 
 #### Training and Validation Loss/Accuracy
 
+> Need to learn how to perform early stopping in code.
+
 <div align="center">
 <img src="../images/Screenshot 2026-02-08 at 22.31.44.png" 
 style="width: 80%" alt="Training and Validation Loss/Accuracy">
